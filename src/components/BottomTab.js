@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { BottomNavigation, Text } from "react-native-paper";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
+import ProductsScreen from "../screens/ProductsScreen/ProductsScreen";
 
-const BottomTab = () => {
+const BottomTab = ({ navigation }) => {
   const [index, setIndex] = useState(0);
   const [routes, setRoutes] = useState([
     {
@@ -20,8 +21,8 @@ const BottomTab = () => {
     {
       key: "products",
       title: "Products",
-      focusedIcon: "home",
-      unfocusedIcon: "home-outline",
+      focusedIcon: "tag-multiple",
+      unfocusedIcon: "tag-multiple-outline",
     },
     {
       key: "customers",
@@ -32,15 +33,15 @@ const BottomTab = () => {
     {
       key: "more",
       title: "More",
-      focusedIcon: "home",
-      unfocusedIcon: "home-outline",
+      focusedIcon: "more",
+      unfocusedIcon: "more",
     },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    home: () => <HomeScreen />,
+    home: () => <HomeScreen navigation={navigation} />,
     orders: () => <Text>Orders</Text>,
-    products: () => <Text>Products</Text>,
+    products: () => <ProductsScreen navigation={navigation} />,
     customers: () => <Text>Customers</Text>,
     more: () => <Text>More</Text>,
   });

@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 import { Button, Text, Title } from "react-native-paper";
 import { styles } from "./style";
+// import { generateClient } from "aws-amplify/api";
+// import { createCustomer } from "./../../graphql/mutations";
+
+// const client = generateClient();
 const CustomerForm = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -17,6 +21,17 @@ const CustomerForm = ({ navigation }) => {
     }
 
     // Add logic to save customer details (e.g., API call, local storage, etc.)
+    // const newCustomer = await client.graphql({
+    //   query: createCustomer,
+    //   variables: {
+    //     input: {
+    //       firstName: firstName,
+    //       lastName: lastName,
+    //       phoneNumber: phoneNumber,
+    //       email: email,
+    //     },
+    //   },
+    // });
     console.log("Customer Details Saved:", {
       firstName,
       lastName,
